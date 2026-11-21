@@ -1,0 +1,329 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Untuk Candra Dewi 💜</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ead5ff, #b47ce8, #7541a8);
+    color: #fff;
+    min-height: 100vh;
+    text-align: center;
+}
+
+.page {
+    display: none;
+    min-height: 100vh;
+    padding: 35px 20px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.page.active {
+    display: flex;
+}
+
+.card {
+    background: rgba(255,255,255,.17);
+    border: 1px solid rgba(255,255,255,.3);
+    backdrop-filter: blur(12px);
+    border-radius: 25px;
+    padding: 30px 22px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 10px 35px #54247755;
+}
+
+h1 {
+    margin-bottom: 18px;
+}
+
+p {
+    line-height: 1.7;
+    margin: 12px 0;
+}
+
+button {
+    border: none;
+    background: #fff;
+    color: #713b9d;
+    padding: 12px 25px;
+    border-radius: 30px;
+    margin-top: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #f0d9ff;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    margin-top: 12px;
+    font-family: inherit;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.gift {
+    font-size: 100px;
+    cursor: pointer;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    50% { transform: scale(1.1); }
+}
+
+.photo {
+    width: 100%;
+    max-height: 260px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-top: 15px;
+}
+
+#hasilQR {
+    width: 220px;
+    background: white;
+    padding: 10px;
+    border-radius: 12px;
+    margin-top: 15px;
+}
+
+.small {
+    font-size: 13px;
+    opacity: .9;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 1. UNTUK SIAPA -->
+<section class="page active" id="halaman1">
+    <div class="card">
+        <h1>Untuk Candra Dewi 💜</h1>
+        <p>Ada sesuatu yang ingin aku sampaikan kepadamu.</p>
+        <p>Dari seseorang yang ingin mengusahankanmu.</p>
+        <h2>With Love ♡</h2>
+        <p>Fachri Aftanta</p>
+        <button onclick="nextPage(2)">Buka Hadiah</button>
+    </div>
+</section>
+
+<!-- 2. JENDELA -->
+<section class="page" id="halaman2">
+    <div class="card">
+        <h1>Little Window 💜</h1>
+        <p>Ada sebuah sedikit pesan buat kamu ya sayanggg.</p>
+        <p>Semoga kamu suka dengan apa yang kubuat ini yaa walaupun sederhana.</p>
+        <button onclick="nextPage(3)">Buka Jendela</button>
+    </div>
+</section>
+
+<!-- 3. SURAT -->
+<section class="page" id="halaman3">
+    <div class="card">
+        <h1>Surat Untukmu bebehhh 💌</h1>
+        <p style="text-align:left; white-space:pre-wrap;">
+            Untuk kamu perempuan kesayanganku
+
+            sayangg, makasih banyak yaa buat kamu
+            makasih kamu udah milih cowo kayak aku
+            cowo yang banyak kekurangannya
+            aku tau sayang aku masih banyak kurangnya buat kamu
+            aku belum ada apa apa nya dibanding yang lainnya
+            aku mau bilang makasih yaa kamu masih mau milih aku 
+            dari banyaknya cowo yang lebih baik dari aku
+            aku minta maaf ya sayanggg 
+            kalau ada perilaku aku yang kurang kamu suka
+            atau kurang menyenangkan ini kekamu
+            aku pun gamau bersikap kayak gitu, moodku
+            maaf sayanggg
+            kalau semisal nanti kamu cape sama sikapku kayak gini 
+            kamu bilang ke aku ya 
+            makasih udah sesabar itu kamu ke aku
+            
+            gaa banyak yang bisa kubilang lagi sayangg
+            tapi yang jelas aku sayanggg banget sama kamu 
+            walaupun sikapku yang selalu bikin kamu cape
+            aku juga kadang cape kok sayang sama sikapku sendiri.
+            
+            makasih yaa sayang atas sabar kamu selama ini.
+
+            i loveee youuuu yaa sayangku duniaku 
+        </p>
+        <button onclick="nextPage(4)">Lanjut</button>
+    </div>
+</section>
+
+<!-- 4. PERTANYAAN -->
+<section class="page" id="halaman4">
+    <div class="card">
+        <h1>Aku Mau Bertanya 💜</h1>
+        <p>Kamu sayang aku ga hihi</p>
+        <input id="jawaban" type="text" placeholder="Tulis Jawabanmu....">
+        <button onclick="cekJawaban()">Kirim Jawaban</button>
+        <p id="pesanJawaban"></p>
+    </div>
+</section>
+
+<!-- 5. FOTO KITA -->
+<section class="page" id="halaman5">
+    <div class="card">
+        <h1>Our Memories 📸</h1>
+        <p>Beberapa kenangan yang ingin selalu aku ingat.</p>
+
+        <!-- Ganti nama file foto sesuai foto milikmu -->
+        <img src="foto.1.jpeg" class="photo" alt="Foto waktu kita udah pacaran hihi">
+        <img src="foto.2.jpeg" class="photo" alt="Foto kita waktu masih bestian">
+
+        <button onclick="nextPage(6)">Lanjut</button>
+    </div>
+</section>
+
+<!-- 6. MUSIK -->
+<section class="page" id="halaman6">
+    <div class="card">
+        <h1>Our Song 🎵</h1>
+        <p>Ada lagu yang ingin aku persembahkan untukmu sayang.</p>
+
+        <!-- Ganti lagu.mp3 dengan nama file musikmu -->
+        <audio controls loop>
+            <source src="lagu.1.mpeg" type="audio/mpeg">
+        </audio>
+
+        <button onclick="nextPage(7)">Lanjut</button>
+    </div>
+</section>
+
+<!-- 7. BUNGKUS HADIAH -->
+<section class="page" id="halaman7">
+    <div class="card">
+        <h1>A Little Gift 🎁</h1>
+        <p>Hadiah kecil ini masih terkunci.</p>
+        <div class="gift" onclick="nextPage(8)">🎁</div>
+        <p>Ketuk hadiah untuk membukanya.</p>
+    </div>
+</section>
+
+<!-- 8. KUNCI HADIAH -->
+<section class="page" id="halaman8">
+    <div class="card">
+        <h1>Unlock Your Gift 🔐</h1>
+        <p>Masukkan tanggal spesial kita sayang</p>
+        <p class="small">Petunjuk: Awal kita memulai semuanya sayang</p>
+
+        <input id="kode" type="text" placeholder="DD-MM-YYYY">
+
+        <button onclick="bukaHadiah()">Buka Kunci</button>
+        <p id="pesanKode"></p>
+    </div>
+</section>
+
+<!-- HADIAH TERBUKA -->
+<section class="page" id="halaman9">
+    <div class="card">
+        <h1>Untukmu, Candra 💜</h1>
+        <div style="font-size:75px">💜</div>
+        <p>Terima kasih sudah membuka hadiah kecilku untuk kamu yaa sayang</p>
+        <p>Semoga kita bisa saling memahami satu sama lain dan memperbaiki semuanya sayang yaa</p>
+        <h2>I'm Sorry ♡</h2>
+        <p>— Fachri Aftanta</p>
+    </div>
+</section>
+
+<!-- QR CODE -->
+<section class="page" id="halamanQR">
+    <div class="card">
+        <h1>QR Code Hadiah 💜</h1>
+        <p>Masukkan alamat website yang sudah online untuk membuat QR.</p>
+
+        <input id="linkWebsite" type="url"
+        placeholder="https://alamat-website-kamu.com">
+
+        <button onclick="buatQR()">Buat QR Code</button>
+        <div>
+            <img id="hasilQR" alt="QR Code" hidden>
+        </div>
+        <p class="small">Pindai QR Code untuk membuka website hadiah.</p>
+    </div>
+</section>
+
+<script>
+function nextPage(n) {
+    document.querySelectorAll(".page").forEach(p => {
+        p.classList.remove("active");
+    });
+
+    document.getElementById("halaman" + n).classList.add("active");
+    window.scrollTo(0, 0);
+}
+
+// GANTI JAWABAN DI BAWAH INI
+const jawabanBenar = "SAYANG BANGET";
+
+function cekJawaban() {
+    let jawaban = document.getElementById("jawaban").value.trim();
+
+    if (jawaban.toLowerCase() === jawabanBenar.toLowerCase()) {
+        document.getElementById("pesanJawaban").innerText =
+            "Terima kasih sudah menjawab 💜";
+        setTimeout(() => nextPage(5), 1000);
+    } else {
+        document.getElementById("pesanJawaban").innerText =
+            "Jawabannya belum tepat, coba lagi ya.";
+    }
+}
+
+// Tanggal kunci: 9 Juli 2026
+function bukaHadiah() {
+    let kode = document.getElementById("kode").value.trim();
+
+    if (kode === "09-07-2026") {
+        document.getElementById("pesanKode").innerText =
+            "Hadiah berhasil dibuka! 💜";
+        setTimeout(() => nextPage(9), 1000);
+    } else {
+        document.getElementById("pesanKode").innerText =
+            "Tanggal belum tepat. Coba lagi ya.";
+    }
+}
+
+// Membuat QR dari alamat website
+function buatQR() {
+    let link = document.getElementById("linkWebsite").value.trim();
+
+    if (!link.startsWith("https://") && !link.startsWith("http://")) {
+        alert("Masukkan alamat website yang valid.");
+        return;
+    }
+
+    let qr = document.getElementById("hasilQR");
+    qr.src = "https://api.qrserver.com/v1/create-qr-code/?size=250x250&data="
+        + encodeURIComponent(link);
+    qr.hidden = false;
+}
+</script>
+
+</body>
+</html>
